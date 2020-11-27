@@ -21,7 +21,7 @@ Download **QED** from GitHub (in this section we assume you have downloaded the 
 > cd qed-1.0.1
 ```
 
-You should now have a number of files in your `~/Downloads/qed-*` directory:
+You should now have a number of files in your `~/Downloads/qed-1.0.1` directory:
 
 ```console
 > ls -l
@@ -37,7 +37,7 @@ qed-1.0.1/qed/qed.py
 qed-1.0.1/setup.py
 ```
 
-Move into the `dist` directory and untar:
+Move into the `dist` directory and `untar` again:
 
 ```
 > cd dist
@@ -57,7 +57,7 @@ This process creates a `qed` folder with all the `qed` files into your default P
 > sudo python setup.py install
 ```
 
-and check your installation by launching `Python`:
+Check your installation by launching `Python`:
 
 ```python
 >>> from qed import qed

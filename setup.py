@@ -11,10 +11,10 @@ setup(
     author = "Hans De Winter",
     author_email = "hans.dewinter@uantwerpen.be",
     description = ("Python implementation of the QED descriptor (Quantitative Estimation of Druglikeness)"),
-    long_description=long_description,
+    long_description = long_description,
 	long_description_content_type="text/markdown",
     url = "https://github.com/UAMCAntwerpen/qed",
-	download_url = "https://github.com/UAMCAntwerpen/qed/blob/main/dist/qed-1.0.1.tar.gz",
+	download_url = "https://github.com/UAMCAntwerpen/qed/archive/1.0.1.tar.gz",
     packages = find_packages(include=['qed']),
 	keywords = ['uamc', 'qed', 'rdkit', 'cheminformatics'],
     classifiers = [

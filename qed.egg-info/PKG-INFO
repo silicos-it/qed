@@ -6,7 +6,7 @@ Home-page: https://github.com/UAMCAntwerpen/qed
 Author: Hans De Winter
 Author-email: hans.dewinter@uantwerpen.be
 License: UNKNOWN
-Download-URL: https://github.com/UAMCAntwerpen/qed/blob/main/dist/qed-1.0.1.tar.gz
+Download-URL: https://github.com/UAMCAntwerpen/qed/archive/1.0.1.tar.gz
 Description: # QED package
         
         **QED** stands for quantitative estimation of drug-likeness and the concept has been introduced by Richard Bickerton and coworkers [Bickerton, G.R.; Paolini, G.V.; Besnard, J.; Muresan, S.; Hopkins, A.L. (2012) ‘Quantifying the chemical beauty of drugs’, Nature Chemistry, 4, 90-98](http://dx.doi.org/10.1038/nchem.1243). This module relies on [RDKit](https://www.rdkit.org) as a chem-informatics toolkit.

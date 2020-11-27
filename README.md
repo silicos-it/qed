@@ -186,3 +186,8 @@ One can inspect the individual properties that are used to calculate the Qed val
 ### Version 1.0.1
 Incorporation of the refitted logP parameters of Gregory Gerebtzoff and making these values default ([rdkit-discuss](http://sourceforge.net/mailarchive/forum.php?thread_name=E05E80C886E33E4BA10E5686C606617602FF1D7A14%40RKAMSEM707.emea.roche.com&forum_name=rdkit-discuss)).
 Modification of the `qed()` function to enable the selection of the original parameters, if desired.
+
+
+## DOI identifier
+
+DOI:10.5281/zenodo.4293730

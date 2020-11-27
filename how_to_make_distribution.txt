@@ -1,0 +1,4 @@
+> python setup.py sdist
+
+This creates a 'dist/' folder in which the tar distribution is located.
+

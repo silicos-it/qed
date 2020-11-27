@@ -1,0 +1,9 @@
+README.md
+setup.cfg
+setup.py
+qed/__init__.py
+qed/qed.py
+qed.egg-info/PKG-INFO
+qed.egg-info/SOURCES.txt
+qed.egg-info/dependency_links.txt
+qed.egg-info/top_level.txt

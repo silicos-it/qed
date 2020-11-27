@@ -1,14 +1,6 @@
 # Copyright 2012 by Silicos-it, a division of Imacosi BVBA
-# Biscu-it is free software; you can redistribute it and/or modify it under the
-# terms of the GNU Lesser General Public License as published by the Free Software
-# Foundation, either version 3 of the License, or (at your option) any later version.
-# Biscu-it is distributed in the hope that it will be useful, but without any warranty;
-# without even the implied warranty of merchantability or fitness for a particular
-# purpose. See the GNU Lesser General Public License for more details.
-#
-# Biscu-it is using the Python bindings of RDKit. RDKit is free software; you can
-# redistribute it and/or modify it under the terms of the BSD-2 license terms as published by
-# the Open Source Initiative. Please refer to the RDKit license for more details.
+# Copyright 2020- by UAMC, the Medicinal Chemistry department of the University
+# of Antwerp
 
 
 __all__ = ['weights_max', 'weights_mean', 'weights_none', 'default']

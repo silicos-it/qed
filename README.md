@@ -17,22 +17,35 @@ Download **QED** from GitHub (in this section we assume you have downloaded the 
 
 ```console
 > cd ~/Downloads
-> sudo tar -xvf qed-*.tar.gz
-> cd qed-*
+> sudo tar -xvf qed-1.0.1.tar.gz
+> cd qed-1.0.1
 ```
 
 You should now have a number of files in your `~/Downloads/qed-*` directory:
 
 ```console
-> ls -1
-COPYING.LESSER
-PKG-INFO
-README
-build/
-setup.py
+> ls -l
+qed-1.0.1/
+qed-1.0.1/LICENSE
+qed-1.0.1/README.md
+qed-1.0.1/dist/
+qed-1.0.1/dist/qed-1.0.1.tar.gz
+qed-1.0.1/how_to_make_distribution.txt
+qed-1.0.1/qed/
+qed-1.0.1/qed/__init__.py
+qed-1.0.1/qed/qed.py
+qed-1.0.1/setup.py
 ```
 
-Now start the installation process:
+Move into the `dist` directory and untar:
+
+```
+> cd dist
+> tar -xvf qed-1.0.1.tar.gz
+> cd qed-1.0.1
+```
+
+Now install with Python:
 
 ```console
 > python setup.py install

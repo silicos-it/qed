@@ -13,9 +13,11 @@ setup(
     description = ("Python implementation of the QED descriptor (Quantitative Estimation of Druglikeness)"),
     long_description=long_description,
 	long_description_content_type="text/markdown",
-    url = "http://packages.python.org/an_example_pypi_project",
-    packages=find_packages(include=['qed']),
-    classifiers=[
+    url = "https://github.com/UAMCAntwerpen/qed",
+	download_url = "https://github.com/UAMCAntwerpen/qed/blob/main/dist/qed-1.0.1.tar.gz",
+    packages = find_packages(include=['qed']),
+	keywords = ['uamc', 'qed', 'rdkit', 'cheminformatics'],
+    classifiers = [
         "Development Status :: 5 - Production/Stable",
 		"Environment :: Console",
 		"Intended Audience :: Science/Research",
@@ -26,5 +28,5 @@ setup(
 		"Topic :: Scientific/Engineering :: Chemistry",
 		"Topic :: Software Development :: Libraries :: Python Modules",
     ],
-	python_requires=">=3.6",
+	python_requires = ">=3.6",
 )

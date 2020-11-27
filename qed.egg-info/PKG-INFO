@@ -2,10 +2,11 @@ Metadata-Version: 2.1
 Name: qed
 Version: 1.0.1
 Summary: Python implementation of the QED descriptor (Quantitative Estimation of Druglikeness)
-Home-page: http://packages.python.org/an_example_pypi_project
+Home-page: https://github.com/UAMCAntwerpen/qed
 Author: Hans De Winter
 Author-email: hans.dewinter@uantwerpen.be
 License: UNKNOWN
+Download-URL: https://github.com/UAMCAntwerpen/qed/blob/main/dist/qed-1.0.1.tar.gz
 Description: # QED package
         
         **QED** stands for quantitative estimation of drug-likeness and the concept has been introduced by Richard Bickerton and coworkers [Bickerton, G.R.; Paolini, G.V.; Besnard, J.; Muresan, S.; Hopkins, A.L. (2012) ‘Quantifying the chemical beauty of drugs’, Nature Chemistry, 4, 90-98](http://dx.doi.org/10.1038/nchem.1243). This module relies on [RDKit](https://www.rdkit.org) as a chem-informatics toolkit.
@@ -55,16 +56,14 @@ Description: # QED package
         and check your installation by launching `Python`:
         
         ```python
-        >>> from silicos_it.descriptors import qed
+        >>> from qed import qed
         >>> from rdkit import Chem
         >>> m = Chem.MolFromSmiles('c1ccccc1')
         >>> qed.default(m)
         0.44619898311523704
         ```
         
-        **QED** can be used as a Python function or as a Python standalone script. In the following sections, both approaches are detailed below.
-        
-        ## Using QED as a Python function
+        ## Using QED
         
         The `qed()` function takes as argument a RDKit molecule and returns the corresponding QED value calculated from it.
         The `qed()` function comes in three flavors, each differing in the relative weight that is imposed on the underlying [molecular descriptors](http://dx.doi.org/10.1038/nchem.1243). These three flavors correspond to the three different **QED** measures that were described in the original publication:
@@ -82,7 +81,7 @@ Description: # QED package
         and exemplified below:
         
         ```python
-        >>> from silicos_it.descriptors import qed
+        >>> from qed import qed
         >>> from rdkit import Chem
         >>> m = Chem.MolFromSmiles('c1ccccc1')
         >>> qed.default(m)
@@ -95,7 +94,7 @@ Description: # QED package
         0.3047153431243204
         ```
         
-        As already mentioned above, the current implementation of **QED** uses the refitted logP parameters from Gregory Gerebtzoff. However, the original values can still be used by specifying False as second argument to the appropriate function call:
+        As already mentioned above, the current implementation of **QED** uses the refitted logP parameters from Gregory Gerebtzoff. However, the original values can still be used by specifying `False` as second argument to the appropriate function call:
         
         ```python
         >>> qed.default(m, False)
@@ -108,50 +107,75 @@ Description: # QED package
         0.3021185764176498
         ```
         
-        ## Using Qed as a Python standalone tool
+        The **QED** module also provides its own test set:
         
-        The use of **QED** as a standalone Python tool is achieved by calling `qed.py` on the command line:
-        
-        ```console
-        > python qed.py
-        Error: no input file given.
+        ```python
+        >>> test = qed.test_data()
+        >>> for name in test: print(test[name], name)
+        ...
+        Nc1nc(NC2CC2)c2ncn([C@@H]3C[C@H](CO)C=C3)c2n1 Abacavir
+        CC(=O)NCCCS(O)(=O)=O Acamprosate
+        CCCC(=O)Nc1ccc(OCC(O)CNC(C)C)c(c1)C(C)=O Acebutolol
+        CC(=O)Nc1ccc(O)cc1 Acetaminophen
+        CC(=O)Nc1nnc(s1)S(N)(=O)=O Acetazolamide
+        CC(=O)c1ccc(cc1)S(=O)(=O)NC(=O)NC1CCCCC1 Acetohexamide
+        CC(=O)c1ccc2Sc3ccccc3N(CCCN3CCN(CCO)CC3)c2c1 Acetophenazine
+        Fc4ccc(C1CCNCC1COc3ccc2OCOc2c3)cc4 Paroxetine
+        Cc1oncc1C(=O)Nc2ccc(C(F)(F)F)cc2 Leflunomide
+        CN1C4CCCC1CC(NC(=O)c2nn(C)c3ccccc23)C4 Granisetron
+        CCCN2CC(CSC)CC1c3cccc4[nH]cc(CC12)c34 Pergolide
+        CCc3c(C)[nH]c2CCC(CN1CCOCC1)C(=O)c23 Molindone
+        CCCCCCCCCCCCCCCC(=O)OCC(NC(=O)C(Cl)Cl)C(O)c1ccc([N+]([O-])=O)cc1 ChloramphenicalPalmitate
+        CCCCCCCCCCCCCCCOC(=O)C2C(O)C(O)C(C(NC(=O)C1CC(CCC)CN1C)C(C)Cl)OC2SC ClindamycinPalmitate
+        CCOc3nc2cccc(C(=O)OC(C)OC(=O)OC1CCCCC1)c2n3Cc6ccc(c4ccccc4c5nn[nH]n5)cc6 CandesartanCilexetil
+        CN(C)CCC=c2c1ccccc1sc3ccc(Cl)cc23 Chlorprothixene
+        O=c3c(O)c(C2CCC(c1ccc(Cl)cc1)CC2)c(=O)c4ccccc34 Atovaquone
+        CN(C)CCCN3c1ccccc1CCc2ccc(Cl)cc23 Clomipramine
+        CN4CCCC(CC3c1ccccc1Sc2ccccc23)C4 Methixene
+        CCN(CC)C(C)Cn3c1ccccc1sc2ccccc23 Ethopropazine
+        N=C(CCSCc1csc(N=C(N)N)n1)NS(N)(=O)=O Famotidine
+        CNC(=NCCSCc1nc[nH]c1C)NC#N Cimetidine
+        CCCCCNC(=N)NN=Cc1c[nH]c2ccc(CO)cc12 Tegaserod
+        C=CC3=C(C(=O)O)N2C(=O)C(NC(=O)C(=NO)c1csc(N)n1)C2SC3 Cefdinir
+        CC5(C)SC4C(NC(=O)C(C(=O)Oc2ccc1CCCc1c2)c3ccccc3)C(=O)N4C5C(=O)O CarbenicillinIndanyl
         ```
         
-        The `qed.py` tool requires a molecule file as input. This file should be in SMILES or in sd-format. An example input file is provided in the `data` directory of the package:
+        One can inspect the individual properties that are used to calculate the Qed value by calling the `properties()` function:
         
-        ```console
-        > python qed.py data/qed_test.smi
-            MW   ALOGP     HBA     HBD     PSA    ROTB    AROM  ALERTS     QED  NAME
-        286.34   1.092       6       3  101.88       4       2       1   0.737  Abacavir
-        181.21   0.481       4       2   83.47       5       0       2   0.487  Acamprosate
-        336.43   2.365       5       3   87.66      11       1       1   0.540  Acebutolol
-        151.16   1.351       2       2   49.33       2       1       1   0.633  Acetaminophen
-        222.25   0.225       5       2  115.04       3       1       1   0.727  Acetazolamide
-        324.40   3.291       4       2   92.34       6       1       1   0.772  Acetohexamide
-        411.57   3.492       6       1   47.02       7       2       1   0.688  Acetophenazine
-        329.37   3.327       4       1   39.72       4       2       0   0.917  Paroxetine
-        270.21   3.146       3       1   55.13       4       2       0   0.915  Leflunomide
-        312.42   2.318       3       1   50.16       3       2       0   0.947  Granisetron
-        314.50   3.789       2       1   19.03       4       2       0   0.898  Pergolide
-        276.38   1.481       3       1   45.33       3       1       0   0.918  Molindone
-        561.55   6.476       6       2  118.77      23       1       5   0.052  ChloramphenicalPalmitate
-        663.41   6.279       8       3  108.33      24       0       3   0.063  ClindamycinPalmitate
-        610.67   5.837      10       1  143.34      13       5       2   0.126  CandesartanCilexetil
-        315.87   5.079       2       0    3.24       3       3       0   0.636  Chlorprothixene
-        366.84   5.505       3       1   54.37       2       2       0   0.741  Atovaquone
-        314.86   4.528       2       0    6.48       4       2       0   0.782  Clomipramine
-        309.48   5.015       2       0    3.24       2       2       0   0.735  Methixene
-        312.48   5.020       3       0    6.48       5       2       0   0.734  Ethopropazine
-        337.46   0.371       6       5  173.33       8       1       3   0.266  Famotidine
-        252.35  -0.036       5       3   88.89       7       1       5   0.214  Cimetidine
-        301.39   1.664       3       5   96.29       9       2       4   0.213  Tegaserod
-        395.42  -0.172       8       4  158.21       6       1       4   0.231  Cefdinir
-        494.57   2.496       7       2  113.01       8       2       4   0.251  CarbenicillinIndanyl
+        ```python
+        >>> for name in test:
+        ...     mol = Chem.MolFromSmiles(test[name])
+        ...     p = qed.properties(mol)
+        ...     print("%6.2f\t%6.3f\t%6d\t%6d\t%6.2f\t%6d\t%6d\t%6d\t%6.3f\t%-s" % (p[0],p[1],p[2],p[3],p[4],p[5],p[6],p[7],qed.default(mol),name))
+        ...
+        286.34	 1.092	     6	     3	101.88	     4	     2	     1	 0.737	Abacavir
+        181.21	-0.600	     4	     2	 83.47	     4	     0	     2	 0.467	Acamprosate
+        336.43	 2.365	     5	     3	 87.66	    10	     1	     1	 0.571	Acebutolol
+        151.16	 1.351	     2	     2	 49.33	     1	     1	     1	 0.602	Acetaminophen
+        222.25	-0.856	     5	     2	115.04	     2	     1	     1	 0.662	Acetazolamide
+        324.40	 2.210	     4	     2	 92.34	     4	     1	     1	 0.833	Acetohexamide
+        411.57	 3.492	     6	     1	 47.02	     7	     2	     1	 0.688	Acetophenazine
+        329.37	 3.327	     4	     1	 39.72	     4	     2	     0	 0.917	Paroxetine
+        270.21	 3.254	     3	     1	 55.13	     2	     2	     0	 0.896	Leflunomide
+        312.42	 2.318	     3	     1	 50.16	     2	     2	     0	 0.927	Granisetron
+        314.50	 4.271	     2	     1	 19.03	     4	     2	     0	 0.871	Pergolide
+        276.38	 1.963	     3	     1	 45.33	     3	     1	     0	 0.923	Molindone
+        561.55	 6.941	     6	     2	118.77	    21	     1	     5	 0.056	ChloramphenicalPalmitate
+        663.41	 6.279	     8	     3	108.33	    22	     0	     3	 0.071	ClindamycinPalmitate
+        610.67	 6.319	    10	     1	143.34	    10	     5	     2	 0.141	CandesartanCilexetil
+        315.87	 5.188	     2	     0	  3.24	     3	     3	     0	 0.629	Chlorprothixene
+        366.84	 5.505	     3	     1	 54.37	     2	     2	     0	 0.741	Atovaquone
+        314.86	 4.528	     2	     0	  6.48	     4	     2	     0	 0.782	Clomipramine
+        309.48	 5.015	     2	     0	  3.24	     2	     2	     0	 0.735	Methixene
+        312.48	 5.020	     3	     0	  6.48	     5	     2	     0	 0.734	Ethopropazine
+        337.46	-0.558	     6	     5	173.33	     7	     1	     3	 0.263	Famotidine
+        252.35	 0.597	     5	     3	 88.89	     5	     1	     5	 0.239	Cimetidine
+        301.39	 2.298	     3	     5	 96.29	     7	     2	     4	 0.235	Tegaserod
+        395.42	-0.172	     8	     4	158.21	     5	     1	     4	 0.239	Cefdinir
+        494.57	 2.496	     7	     2	113.01	     6	     2	     4	 0.274	CarbenicillinIndanyl
+        >>> print("    MW\t ALOGP\t   HBA\t   HBD\t   PSA\t  ROTB\t  AROM\tALERTS\t   QED\tNAME")
+            MW	 ALOGP	   HBA	   HBD	   PSA	  ROTB	  AROM	ALERTS	   QED	NAME
         ```
-        
-        When the molecular input file is in SMILES format, each line should be composed of the smiles code and optionally followed by the molecular name.
-        The calculated QED values are the values as calculated by the `qed.default()` function, hence using QED<sub>w,mo</sub> weighting scheme with Gregory Gerebtzoff’s adjusted logP parameters. In addition to the QED values, all other properties that are used for the calculation of the QED parameter are also output by the `qed.py` tool.
-        
         
         ## Revision history
         
@@ -159,6 +183,7 @@ Description: # QED package
         Incorporation of the refitted logP parameters of Gregory Gerebtzoff and making these values default ([rdkit-discuss](http://sourceforge.net/mailarchive/forum.php?thread_name=E05E80C886E33E4BA10E5686C606617602FF1D7A14%40RKAMSEM707.emea.roche.com&forum_name=rdkit-discuss)).
         Modification of the `qed()` function to enable the selection of the original parameters, if desired.
         
+Keywords: uamc,qed,rdkit,cheminformatics
 Platform: UNKNOWN
 Classifier: Development Status :: 5 - Production/Stable
 Classifier: Environment :: Console

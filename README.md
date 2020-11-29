@@ -41,11 +41,11 @@ Depending on your `python` location, it might be that you need admin rights. In 
 
 #### 2. Alternative manner: download from Github and run `setup.py install`
 
-Download **QED** from [GitHub](https://github.com/UAMCAntwerpen/qed). In this section we assume you have downloaded the file into your `~/Downloads` directory) and untar this file into this directory:
+Download **QED** from [GitHub](https://github.com/UAMCAntwerpen/qed/releases/tag/1.0.2). In this section we assume you have downloaded the file into your `~/Downloads` directory) and untar this file into this directory:
 
 ```console
 > cd ~/Downloads
-> sudo tar -xvf uamc-qed-1.0.1.tar.gz
+> sudo tar -xvf uamc-qed-1.0.2.tar.gz
 > cd uamc-qed-1.0.2
 ```
 
@@ -57,11 +57,8 @@ qed-1.0.2/
 qed-1.0.2/LICENSE
 qed-1.0.2/README.md
 qed-1.0.2/dist/
-qed-1.0.2/dist/qed-1.0.1.tar.gz
 qed-1.0.2/how_to_make_distribution.txt
 qed-1.0.2/qed/
-qed-1.0.2/qed/__init__.py
-qed-1.0.2/qed/qed.py
 qed-1.0.2/setup.py
 ```
 

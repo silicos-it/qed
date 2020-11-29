@@ -18,7 +18,7 @@ setup(
     long_description = long_description,
 	long_description_content_type="text/markdown",
     url = "https://github.com/UAMCAntwerpen/qed",
-	download_url = "https://github.com/UAMCAntwerpen/qed/archive/1.0.1.tar.gz",
+	download_url = "https://github.com/UAMCAntwerpen/qed/releases/tag/1.0.2",
     packages = find_packages(include=['qed']),
 	keywords = ['uamc', 'qed', 'rdkit', 'cheminformatics'],
     classifiers = [

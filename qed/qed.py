@@ -4,7 +4,7 @@
 
 
 __all__ = ['weights_max', 'weights_mean', 'weights_none', 'default']
-__version__ = "1.0.1"
+__version__ = "1.0.2"
 
 
 # RDKit

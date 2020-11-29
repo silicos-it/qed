@@ -5,9 +5,13 @@ from setuptools import setup, find_packages
 with open("README.md", "r") as fh:
 	long_description = fh.read()
 
+version = {}
+with open("qed/qed.py") as fp:
+	exec(fp.read(), version)
+
 setup(
     name = "qed",
-    version = "1.0.1",
+    version = version['__version__'],
     author = "Hans De Winter",
     author_email = "hans.dewinter@uantwerpen.be",
     description = ("Python implementation of the QED descriptor (Quantitative Estimation of Druglikeness)"),

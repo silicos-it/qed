@@ -10,7 +10,7 @@ with open("qed/qed.py") as fp:
 	exec(fp.read(), version)
 
 setup(
-    name = "qed",
+    name = "uamc-qed",
     version = version['__version__'],
     author = "Hans De Winter",
     author_email = "hans.dewinter@uantwerpen.be",

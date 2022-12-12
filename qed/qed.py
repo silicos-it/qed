@@ -213,7 +213,7 @@ def properties(mol):
 	x[3] = Descriptors.NumHDonors(mol)											# HBD
 	x[4] = Descriptors.TPSA(mol)												# PSA
 	x[5] = Descriptors.NumRotatableBonds(mol)									# ROTB
-	x[6] = Chem.GetSSSR(Chem.DeleteSubstructs(deepcopy(mol), AliphaticRings))	# AROM
+	x[6] = len(Chem.GetSSSR(Chem.DeleteSubstructs(deepcopy(mol), AliphaticRings)))	# AROM
 	for alert in StructuralAlerts:												# ALERTS
 		if (mol.HasSubstructMatch(alert)): x[7] += 1
 	return x
